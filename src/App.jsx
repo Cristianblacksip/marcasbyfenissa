@@ -294,28 +294,31 @@ export default function App() {
         </div>
       </nav>
 
-      {/* --- HERO SECTION --- */}
-      <header className="relative pt-20 pb-16 px-4 text-center overflow-hidden">
-        <div className="max-w-4xl mx-auto relative z-10 animate-in fade-in zoom-in duration-500">
-          <span className={`inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest uppercase border rounded-full ${activeTab === 'VELT' ? 'border-black' : 'border-current opacity-60'}`}>
-            {brand.concept}
-          </span>
-          <h1 className={`text-6xl md:text-8xl mb-4 ${brand.typography.titleFont} transition-all duration-500`}>
-            {brand.name}
-          </h1>
-          <p className="text-xl md:text-2xl opacity-80 italic mb-8">
-            {brand.tagline}
-          </p>
-          <p className="max-w-2xl mx-auto text-lg leading-relaxed opacity-90">
-            {brand.description}
-          </p>
-        </div>
-        
-        <div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[100px] -z-0 opacity-30 transition-colors duration-700"
-          style={{ backgroundColor: brand.colors.accent }}
-        />
-      </header>
+{/* --- HERO SECTION --- */}
+<header className="relative pt-20 pb-16 px-4 text-center overflow-hidden">
+  <div className="max-w-4xl mx-auto relative z-10 animate-in fade-in zoom-in duration-500">
+    <span className={`inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest uppercase border rounded-full ${activeTab === 'VELT' ? 'border-black' : 'border-current opacity-60'}`}>
+      {brand.concept}
+    </span>
+
+    {/* AJUSTE: Muestra STIL aunque en el menú diga STIL NEW */}
+    <h1 className={`text-6xl md:text-8xl mb-4 ${brand.typography.titleFont} transition-all duration-500`}>
+      {activeTab === 'STIL_DOS' ? 'STIL' : brand.name}
+    </h1>
+
+    <p className="text-xl md:text-2xl opacity-80 italic mb-8">
+      {brand.tagline}
+    </p>
+    <p className="max-w-2xl mx-auto text-lg leading-relaxed opacity-90">
+      {brand.description}
+    </p>
+  </div>
+  
+  <div 
+    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[100px] -z-0 opacity-30 transition-colors duration-700"
+    style={{ backgroundColor: brand.colors.accent }}
+  />
+</header>
 
       {/* --- MAIN GRID --- */}
       <main className="max-w-6xl mx-auto px-4 pb-12 space-y-12">
