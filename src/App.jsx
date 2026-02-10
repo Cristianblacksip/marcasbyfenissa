@@ -12,7 +12,8 @@ import {
   Zap, 
   ArrowRight,
   Sparkles,
-  Leaf
+  Leaf,
+  Layers
 } from 'lucide-react';
 
 // --- DATA SOURCE ---
@@ -81,10 +82,9 @@ const brandsData = {
     },
     logoPrompt: 'Trendy fashion-forward logo, classic modern serif, fashion label aesthetic, greige and digital lavender, chic and dynamic.'
   },
-  // NUEVA MARCA: Stil New con look de ORA
   STIL_DOS: {
     id: 'stil-dos',
-    name: 'STIL NEW', // Nombre actualizado en el menú
+    name: 'STIL NEW',
     logoUrl: '/logos/stil-nuevo-logo.jpg',
     tagline: 'Lujo en calma.',
     concept: 'Minimalismo Nórdico',
@@ -210,6 +210,38 @@ const brandsData = {
     },
     logoPrompt: 'Artisanal organic logo for home brand Niddo, elegant serif typography Lora style, soft terracotta and pale moss green, textured paper effect, warm lighting.'
   },
+  MIXIO: {
+    id: 'mixio',
+    name: 'MIXIO',
+    logoUrl: '/logos/mixio-logo.jpg',
+    tagline: 'Tu cama, tus reglas.',
+    concept: 'Eclectic Modular',
+    description: '¿Por qué conformarse con un solo estilo? El poder del Mix & Match. Piezas individuales para crear combinaciones únicas.',
+    colors: {
+      primary: '#4ECDC4', 
+      secondary: '#292929', 
+      accent: '#FF6B6B', 
+      bg: 'bg-[#E0F7FA]', 
+      text: 'text-[#292929]',
+      cardBg: 'bg-white border-2 border-[#4ECDC4] shadow-[4px_4px_0px_0px_rgba(78,205,196,1)]'
+    },
+    typography: {
+      titleFont: 'font-sans font-black tracking-tight', 
+      bodyFont: 'font-mono', 
+      style: 'Bold & Geometric'
+    },
+    persona: {
+      name: 'Sofía',
+      age: '24-30 años',
+      profile: 'La creativa inquieta. Se aburre rápido y le gusta cambiar. Compra fundas sueltas para renovar sin gastar en sets completos.'
+    },
+    unboxing: {
+      title: 'The Puzzle Box',
+      desc: 'Cajas modulares cúbicas que se conectan entre sí. Coleccionables y reutilizables para organizar.',
+      message: '"Crea tu mezcla."'
+    },
+    logoPrompt: 'Bold geometric logo for Mixio, Futura Black typography, Memphis design style, Neo-Mint and Coral Pop colors, playful and modular aesthetic, vector flat design.'
+  },
   KONIG: {
     id: 'konig',
     name: 'KÖNIG',
@@ -294,36 +326,35 @@ export default function App() {
         </div>
       </nav>
 
-{/* --- HERO SECTION --- */}
-<header className="relative pt-20 pb-16 px-4 text-center overflow-hidden">
-  <div className="max-w-4xl mx-auto relative z-10 animate-in fade-in zoom-in duration-500">
-    <span className={`inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest uppercase border rounded-full ${activeTab === 'VELT' ? 'border-black' : 'border-current opacity-60'}`}>
-      {brand.concept}
-    </span>
+      {/* --- HERO SECTION --- */}
+      <header className="relative pt-20 pb-16 px-4 text-center overflow-hidden">
+        <div className="max-w-4xl mx-auto relative z-10 animate-in fade-in zoom-in duration-500">
+          <span className={`inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest uppercase border rounded-full ${activeTab === 'VELT' ? 'border-black' : 'border-current opacity-60'}`}>
+            {brand.concept}
+          </span>
 
-    {/* AJUSTE: Muestra STIL aunque en el menú diga STIL NEW */}
-    <h1 className={`text-6xl md:text-8xl mb-4 ${brand.typography.titleFont} transition-all duration-500`}>
-      {activeTab === 'STIL_DOS' ? 'STIL' : brand.name}
-    </h1>
+          <h1 className={`text-6xl md:text-8xl mb-4 ${brand.typography.titleFont} transition-all duration-500`}>
+            {activeTab === 'STIL_DOS' ? 'STIL' : brand.name}
+          </h1>
 
-    <p className="text-xl md:text-2xl opacity-80 italic mb-8">
-      {brand.tagline}
-    </p>
-    <p className="max-w-2xl mx-auto text-lg leading-relaxed opacity-90">
-      {brand.description}
-    </p>
-  </div>
-  
-  <div 
-    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[100px] -z-0 opacity-30 transition-colors duration-700"
-    style={{ backgroundColor: brand.colors.accent }}
-  />
-</header>
+          <p className="text-xl md:text-2xl opacity-80 italic mb-8">
+            {brand.tagline}
+          </p>
+          <p className="max-w-2xl mx-auto text-lg leading-relaxed opacity-90">
+            {brand.description}
+          </p>
+        </div>
+        
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[100px] -z-0 opacity-30 transition-colors duration-700"
+          style={{ backgroundColor: brand.colors.accent }}
+        />
+      </header>
 
       {/* --- MAIN GRID --- */}
       <main className="max-w-6xl mx-auto px-4 pb-12 space-y-12">
         <div className="grid md:grid-cols-2 gap-8">
-          <div className={`${brand.colors.cardBg} p-8 rounded-3xl shadow-sm transition-all duration-500`}>
+          <div className={`${brand.colors.cardBg} p-8 rounded-3xl transition-all duration-500`}>
             <div className="flex items-center gap-2 mb-6 opacity-70">
               <Palette className="w-5 h-5" />
               <h2 className="font-bold uppercase tracking-wider">Identidad Visual</h2>
@@ -338,14 +369,14 @@ export default function App() {
                 <Type className="w-6 h-6 mt-1 opacity-60" />
                 <div>
                   <h3 className="font-bold text-sm uppercase mb-1">Tipografía</h3>
-                  <p className={`${brand.typography.titleFont} text-2xl mb-1`}>{brand.name} Headline</p>
+                  <p className={`${brand.typography.titleFont} text-2xl mb-1`}>{activeTab === 'STIL_DOS' ? 'STIL' : brand.name} Headline</p>
                   <p className="text-sm opacity-70">Estilo {brand.typography.style}</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className={`${brand.colors.cardBg} p-8 rounded-3xl shadow-sm transition-all duration-500 relative overflow-hidden`}>
+          <div className={`${brand.colors.cardBg} p-8 rounded-3xl transition-all duration-500 relative overflow-hidden`}>
              <div className="absolute top-0 right-0 p-4 opacity-10">
                <User className="w-32 h-32" />
              </div>
@@ -370,7 +401,7 @@ export default function App() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <div className={`md:col-span-2 ${brand.colors.cardBg} p-8 rounded-3xl shadow-sm transition-all duration-500`}>
+          <div className={`md:col-span-2 ${brand.colors.cardBg} p-8 rounded-3xl transition-all duration-500`}>
              <div className="flex items-center gap-2 mb-6 opacity-70">
               <Box className="w-5 h-5" />
               <h2 className="font-bold uppercase tracking-wider">Unboxing Experience</h2>
@@ -384,6 +415,7 @@ export default function App() {
                 {activeTab === 'STIL_DOS' && <ShoppingBag className="w-16 h-16" />}
                 {activeTab === 'NORA' && <Feather className="w-16 h-16" />}
                 {activeTab === 'NIDDO' && <Leaf className="w-16 h-16" />}
+                {activeTab === 'MIXIO' && <Layers className="w-16 h-16" />}
               </div>
               <div className="flex-1 space-y-4">
                 <h3 className={`text-2xl ${brand.typography.titleFont}`}>{brand.unboxing.title}</h3>
