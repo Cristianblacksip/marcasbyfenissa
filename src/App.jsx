@@ -81,10 +81,10 @@ const brandsData = {
     },
     logoPrompt: 'Trendy fashion-forward logo, classic modern serif, fashion label aesthetic, greige and digital lavender, chic and dynamic.'
   },
-  // NUEVA MARCA: Nombre Stil con look de ORA
+  // NUEVA MARCA: Stil New con look de ORA
   STIL_DOS: {
     id: 'stil-dos',
-    name: 'STIL', // Nombre visible solicitado
+    name: 'STIL NEW', // Nombre actualizado en el menú
     logoUrl: '/logos/stil-nuevo-logo.jpg',
     tagline: 'Lujo en calma.',
     concept: 'Minimalismo Nórdico',
@@ -266,7 +266,7 @@ export default function App() {
       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200 shadow-sm">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <span className="font-bold text-xl tracking-tighter text-gray-800">PORTAFOLIO DE MARCAS</span>
+            <span className="font-bold text-xl tracking-tighter text-gray-800">Marcas By Fenissa</span>
             
             <div 
               className="flex space-x-1 overflow-x-auto overflow-y-hidden items-center"
@@ -428,7 +428,7 @@ export default function App() {
       </main>
 
       <footer className="text-center pb-10 opacity-40 text-sm">
-        <p>Estrategia de Marca & Growth • Proyecto Nuvu Expansión</p>
+        <p>Estrategia de Marca & Growth • Proyecto by fenissa power by CommercesUp</p>
       </footer>
     </div>
   );
