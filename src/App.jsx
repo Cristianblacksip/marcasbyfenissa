@@ -81,6 +81,39 @@ const brandsData = {
     },
     logoPrompt: 'Trendy fashion-forward logo, classic modern serif, fashion label aesthetic, greige and digital lavender, chic and dynamic.'
   },
+  // NUEVA MARCA: Nombre Stil con look de ORA
+  STIL_DOS: {
+    id: 'stil-dos',
+    name: 'STIL', // Nombre visible solicitado
+    logoUrl: '/logos/stil-nuevo-logo.jpg',
+    tagline: 'Lujo en calma.',
+    concept: 'Minimalismo Nórdico',
+    description: 'Estética nórdica y "calma visual" para el hogar contemporáneo. El descanso de un hotel 5 estrellas hecho estándar.',
+    colors: {
+      primary: '#D8D3CD', 
+      secondary: '#383838', 
+      accent: '#6B705C', 
+      bg: 'bg-[#F5F2F0]',
+      text: 'text-[#383838]',
+      cardBg: 'bg-white'
+    },
+    typography: {
+      titleFont: 'font-serif tracking-wide', 
+      bodyFont: 'font-sans', 
+      style: 'Minimalist & Clean'
+    },
+    persona: {
+      name: 'Santi',
+      age: '28-35 años',
+      profile: 'Profesional urbano que busca paz mental visual. Teme gastar en modas pasajeras.'
+    },
+    unboxing: {
+      title: 'La Calma en una Bolsa',
+      desc: 'Tote Bag de lino crudo reutilizable. Sachet de lavanda incluido.',
+      message: '"Desconecta. Estás en casa."'
+    },
+    logoPrompt: 'Minimalist luxury logo, elegant thin serif typography, abstract sunrise line drawing, warm sand beige and charcoal colors, nordic style.'
+  },
   ORA: {
     id: 'ora',
     name: 'ORA',
@@ -223,17 +256,17 @@ const ColorSwatch = ({ color, label }) => (
 );
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('NORA'); // Iniciamos con NORA por el nuevo orden
+  const [activeTab, setActiveTab] = useState('NORA');
   const brand = brandsData[activeTab];
 
   return (
     <div className={`min-h-screen transition-colors duration-700 ${brand.colors.bg} ${brand.colors.text} ${brand.typography.bodyFont}`}>
       
-      {/* --- NAVIGATION: Ajuste anti-scroll aplicado --- */}
+      {/* --- NAVIGATION --- */}
       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200 shadow-sm">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <span className="font-bold text-xl tracking-tighter text-gray-800">Marcas by Fenissa</span>
+            <span className="font-bold text-xl tracking-tighter text-gray-800">PORTAFOLIO DE MARCAS</span>
             
             <div 
               className="flex space-x-1 overflow-x-auto overflow-y-hidden items-center"
@@ -261,7 +294,7 @@ export default function App() {
         </div>
       </nav>
 
-      {/* --- HERO SECTION: Estructura original mantenida --- */}
+      {/* --- HERO SECTION --- */}
       <header className="relative pt-20 pb-16 px-4 text-center overflow-hidden">
         <div className="max-w-4xl mx-auto relative z-10 animate-in fade-in zoom-in duration-500">
           <span className={`inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest uppercase border rounded-full ${activeTab === 'VELT' ? 'border-black' : 'border-current opacity-60'}`}>
@@ -345,6 +378,7 @@ export default function App() {
                 {activeTab === 'KONIG' && <Cpu className="w-16 h-16" />}
                 {activeTab === 'VELT' && <Layout className="w-16 h-16" />}
                 {activeTab === 'STIL' && <Zap className="w-16 h-16" />}
+                {activeTab === 'STIL_DOS' && <ShoppingBag className="w-16 h-16" />}
                 {activeTab === 'NORA' && <Feather className="w-16 h-16" />}
                 {activeTab === 'NIDDO' && <Leaf className="w-16 h-16" />}
               </div>
@@ -378,7 +412,7 @@ export default function App() {
           </div>
         </div>
 
-        {/* --- SECCIÓN: LOGO AL FINAL CON BORDES REDONDEADOS --- */}
+        {/* --- SECCIÓN: LOGO AL FINAL --- */}
         <section className="flex flex-col items-center justify-center pt-8 border-t border-current/5">
           <p className="text-xs uppercase tracking-[0.3em] opacity-40 mb-6 font-bold">Identidad de Marca</p>
           <div className="bg-white p-4 rounded-2xl shadow-xl overflow-hidden group transition-transform hover:scale-105 duration-500">
@@ -394,7 +428,7 @@ export default function App() {
       </main>
 
       <footer className="text-center pb-10 opacity-40 text-sm">
-        <p>Estrategia de Marca & Growth • Proyecto by Fenissa power by CommercesUp</p>
+        <p>Estrategia de Marca & Growth • Proyecto Nuvu Expansión</p>
       </footer>
     </div>
   );
