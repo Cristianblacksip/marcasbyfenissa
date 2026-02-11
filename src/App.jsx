@@ -8,10 +8,11 @@ import {
   Target, 
   Sparkles,
   Zap,
-  Activity
+  Cpu,
+  Smartphone
 } from 'lucide-react';
 
-// --- DATA SOURCE: Solo STIL NEW y NEXUM ---
+// --- DATA SOURCE: STIL NEW y la nueva versión escalable de NEXUM ---
 const brandsData = {
   STIL_DOS: {
     id: 'stil-dos',
@@ -49,9 +50,9 @@ const brandsData = {
     id: 'nexum',
     name: 'NEXUM',
     logoUrl: '/logos/nexum-logo.jpg',
-    tagline: 'Optimiza tu descanso.',
-    concept: 'Sleep Performance',
-    description: 'La ciencia del sueño aplicada a textiles. Regulación de temperatura y materiales de alto rendimiento para quienes buscan optimizar su vida.',
+    tagline: 'Optimización Total.',
+    concept: 'Human Performance',
+    description: 'Un ecosistema de productos. Comenzamos en tu habitación con textiles inteligentes, pero escalamos hacia gadgets, ergonomía y accesorios que potencian tu estilo de vida 24/7.',
     colors: {
       primary: '#0B1120', 
       secondary: '#00E5FF', 
@@ -63,19 +64,19 @@ const brandsData = {
     typography: {
       titleFont: 'font-sans font-bold tracking-widest uppercase', 
       bodyFont: 'font-sans', 
-      style: 'Futuristic & Athletic'
+      style: 'Futuristic & Scalable'
     },
     persona: {
       name: 'Julián',
       age: '26-35 años',
-      profile: 'Bio-hacker y deportista. Mide su sueño con tecnología. Busca telas que enfríen y recuperen el músculo.'
+      profile: 'Early Adopter & Bio-hacker. No busca solo sábanas, busca herramientas. Interesado en domótica, wearables y gear de viaje.'
     },
     unboxing: {
-      title: 'The System Pack',
-      desc: 'Caja negra mate con apertura magnética. Gráficas de rendimiento en foil holográfico. QR a guía de sueño.',
-      message: '"Recarga iniciada."'
+      title: 'The Tech Drop',
+      desc: 'Empaque estilo "gadget high-end". Caja rígida magnética, manual de usuario minimalista y stickers de la marca para laptops/termos.',
+      message: '"Sistema actualizado."'
     },
-    logoPrompt: 'Futuristic abstract logo for high-tech brand Nexum, Exo 2 typography, cyberpunk aesthetic, deep navy and neon cyan, performance and speed, sleek vector design.'
+    logoPrompt: 'Abstract futuristic logo for lifestyle tech brand Nexum. Symbol connecting nodes or circuitry (the "nexus"). Deep navy and neon cyan. Scalable for textiles, electronics, and accessories. Minimalist vector.'
   }
 };
 
@@ -97,7 +98,7 @@ export default function App() {
   return (
     <div className={`min-h-screen transition-colors duration-700 ${brand.colors.bg} ${brand.colors.text} ${brand.typography.bodyFont}`}>
       
-      {/* --- NAVIGATION --- */}
+      {/* --- NAVIGATION: Limpia y fluida --- */}
       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200 shadow-sm">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
@@ -157,7 +158,7 @@ export default function App() {
       {/* --- MAIN GRID --- */}
       <main className="max-w-6xl mx-auto px-4 pb-12 space-y-12">
         <div className="grid md:grid-cols-2 gap-8">
-          {/* Identity Card */}
+          
           <div className={`${brand.colors.cardBg} p-8 rounded-3xl transition-all duration-500`}>
             <div className="flex items-center gap-2 mb-6 opacity-70">
               <Palette className="w-5 h-5" />
@@ -174,13 +175,12 @@ export default function App() {
                 <div>
                   <h3 className="font-bold text-sm uppercase mb-1">Tipografía</h3>
                   <p className={`${brand.typography.titleFont} text-2xl mb-1`}>{activeTab === 'STIL_DOS' ? 'STIL' : brand.name} Headline</p>
-                  <p className="text-sm opacity-70">Estilo {brand.typography.style}</p>
+                  <p className="text-sm opacity-70">Enfoque {brand.typography.style}</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Persona Card */}
           <div className={`${brand.colors.cardBg} p-8 rounded-3xl transition-all duration-500 relative overflow-hidden`}>
              <div className="absolute top-0 right-0 p-4 opacity-10">
                <User className="w-32 h-32" />
@@ -206,7 +206,7 @@ export default function App() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {/* Unboxing */}
+          
           <div className={`md:col-span-2 ${brand.colors.cardBg} p-8 rounded-3xl transition-all duration-500`}>
              <div className="flex items-center gap-2 mb-6 opacity-70">
               <Box className="w-5 h-5" />
@@ -214,20 +214,19 @@ export default function App() {
             </div>
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="bg-gray-100 rounded-2xl w-full md:w-1/3 h-48 flex items-center justify-center text-gray-400">
-                {activeTab === 'STIL_DOS' ? <ShoppingBag className="w-16 h-16" /> : <Activity className="w-16 h-16" />}
+                {activeTab === 'STIL_DOS' ? <ShoppingBag className="w-16 h-16" /> : <Smartphone className="w-16 h-16" />}
               </div>
               <div className="flex-1 space-y-4">
                 <h3 className={`text-2xl ${brand.typography.titleFont}`}>{brand.unboxing.title}</h3>
                 <p className="opacity-80 leading-relaxed">{brand.unboxing.desc}</p>
                 <div className="inline-block px-4 py-2 border border-current/20 rounded-lg mt-2">
-                  <span className="text-xs uppercase tracking-widest opacity-50 block mb-1">Tarjeta</span>
+                  <span className="text-xs uppercase tracking-widest opacity-50 block mb-1">Status</span>
                   <span className={`italic font-medium ${brand.typography.titleFont}`}>{brand.unboxing.message}</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* AI Prompt */}
           <div className="bg-gray-900 text-gray-300 p-8 rounded-3xl shadow-lg flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 mb-4 text-emerald-400">
@@ -249,11 +248,11 @@ export default function App() {
 
         {/* --- LOGO AL FINAL --- */}
         <section className="flex flex-col items-center justify-center pt-8 border-t border-current/5">
-          <p className="text-xs uppercase tracking-[0.3em] opacity-40 mb-6 font-bold">Identidad de Marca</p>
+          <p className="text-xs uppercase tracking-[0.3em] opacity-40 mb-6 font-bold">Identidad Corporativa</p>
           <div className="bg-white p-4 rounded-2xl shadow-xl overflow-hidden group transition-transform hover:scale-105 duration-500">
             <img 
               src={brand.logoUrl} 
-              alt={`Logo de ${brand.name}`} 
+              alt={`Logo final de ${brand.name}`} 
               className="max-h-32 md:max-h-48 object-contain rounded-xl"
               onError={(e) => { e.target.parentElement.style.display = 'none'; }}
             />
