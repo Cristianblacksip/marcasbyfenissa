@@ -6,82 +6,13 @@ import {
   Palette, 
   User, 
   Target, 
-  Cpu, 
-  Feather, 
-  Layout, 
-  Zap, 
-  ArrowRight,
   Sparkles,
-  Leaf,
-  Layers
+  Zap,
+  Activity
 } from 'lucide-react';
 
-// --- DATA SOURCE ---
+// --- DATA SOURCE: Solo STIL NEW y NEXUM ---
 const brandsData = {
-  NORA: {
-    id: 'nora',
-    name: 'NÖRA',
-    logoUrl: '/logos/nora-logo.jpg',
-    tagline: 'Suavidad sin límites.',
-    concept: 'Soft Tech Luxury',
-    description: 'Suavidad extrema con ADN digital. Un puente entre tecnología textil y confort absoluto.',
-    colors: {
-      primary: '#AEC6CF', 
-      secondary: '#BDC3C7', 
-      accent: '#FADADD', 
-      bg: 'bg-gradient-to-br from-[#EAF2F8] to-[#FADADD]',
-      text: 'text-slate-700',
-      cardBg: 'bg-white/80 backdrop-blur-md rounded-2xl'
-    },
-    typography: {
-      titleFont: 'font-sans font-medium', 
-      bodyFont: 'font-sans', 
-      style: 'Soft & Approachable'
-    },
-    persona: {
-      name: 'Isabela',
-      age: '34 años',
-      profile: 'Madre trabajadora. Busca practicidad y suavidad extrema ("cloud comfort").'
-    },
-    unboxing: {
-      title: 'Tactile Comfort',
-      desc: 'Cilindro soft-touch o bolsa jersey suave. Muestra de tela "anti-estrés" al exterior.',
-      message: '"Toca el cielo."'
-    },
-    logoPrompt: 'Soft modern logo, rounded sans-serif typography, abstract cloud/thread symbol, glacier blue and pale pink, soft tech aesthetic.'
-  },
-  STIL: {
-    id: 'stil',
-    name: 'STIL',
-    logoUrl: '/logos/stil-logo.jpg',
-    tagline: 'Renueva tu refugio.',
-    concept: 'Fast-Fashion Home',
-    description: 'Colecciones cápsula que rotan constantemente. Moda de pasarela llevada a tu cama.',
-    colors: {
-      primary: '#E5E0DC', 
-      secondary: '#000000', 
-      accent: '#E6E6FA', 
-      bg: 'bg-[#E5E0DC]',
-      text: 'text-black',
-      cardBg: 'bg-white shadow-xl'
-    },
-    typography: {
-      titleFont: 'font-serif font-extrabold', 
-      bodyFont: 'font-sans tracking-wide', 
-      style: 'Trendy & Chic'
-    },
-    persona: {
-      name: 'Daniela',
-      age: '29 años',
-      profile: 'Recién independizada. Cambia de look seguido. Busca tendencia sin culpa financiera.'
-    },
-    unboxing: {
-      title: 'Urban Rush',
-      desc: 'Bolsa de envío Tyvek holográfica o lavanda. Stickers de diseño de regalo.',
-      message: '"Tu cuarto acaba de subir de nivel."'
-    },
-    logoPrompt: 'Trendy fashion-forward logo, classic modern serif, fashion label aesthetic, greige and digital lavender, chic and dynamic.'
-  },
   STIL_DOS: {
     id: 'stil-dos',
     name: 'STIL NEW',
@@ -114,165 +45,37 @@ const brandsData = {
     },
     logoPrompt: 'Minimalist luxury logo, elegant thin serif typography, abstract sunrise line drawing, warm sand beige and charcoal colors, nordic style.'
   },
-  ORA: {
-    id: 'ora',
-    name: 'ORA',
-    logoUrl: '/logos/ora-logo.jpg',
-    tagline: 'Lujo en calma.',
-    concept: 'Minimalismo Nórdico',
-    description: 'Estética nórdica y "calma visual" para el hogar contemporáneo. El descanso de un hotel 5 estrellas hecho estándar.',
+  NEXUM: {
+    id: 'nexum',
+    name: 'NEXUM',
+    logoUrl: '/logos/nexum-logo.jpg',
+    tagline: 'Optimiza tu descanso.',
+    concept: 'Sleep Performance',
+    description: 'La ciencia del sueño aplicada a textiles. Regulación de temperatura y materiales de alto rendimiento para quienes buscan optimizar su vida.',
     colors: {
-      primary: '#D8D3CD', 
-      secondary: '#383838', 
-      accent: '#6B705C', 
-      bg: 'bg-[#F5F2F0]',
-      text: 'text-[#383838]',
-      cardBg: 'bg-white'
+      primary: '#0B1120', 
+      secondary: '#00E5FF', 
+      accent: '#94A3B8', 
+      bg: 'bg-[#0F172A]', 
+      text: 'text-slate-200',
+      cardBg: 'bg-white/5 border border-[#00E5FF]/30 backdrop-blur-md' 
     },
     typography: {
-      titleFont: 'font-serif tracking-wide', 
+      titleFont: 'font-sans font-bold tracking-widest uppercase', 
       bodyFont: 'font-sans', 
-      style: 'Minimalist & Clean'
+      style: 'Futuristic & Athletic'
     },
     persona: {
-      name: 'Santi',
-      age: '28-35 años',
-      profile: 'Profesional urbano que busca paz mental visual. Teme gastar en modas pasajeras.'
+      name: 'Julián',
+      age: '26-35 años',
+      profile: 'Bio-hacker y deportista. Mide su sueño con tecnología. Busca telas que enfríen y recuperen el músculo.'
     },
     unboxing: {
-      title: 'La Calma en una Bolsa',
-      desc: 'Tote Bag de lino crudo reutilizable. Sachet de lavanda incluido.',
-      message: '"Desconecta. Estás en casa."'
+      title: 'The System Pack',
+      desc: 'Caja negra mate con apertura magnética. Gráficas de rendimiento en foil holográfico. QR a guía de sueño.',
+      message: '"Recarga iniciada."'
     },
-    logoPrompt: 'Minimalist luxury logo, elegant thin serif typography, abstract sunrise line drawing, warm sand beige and charcoal colors, nordic style.'
-  },
-  VELT: {
-    id: 'velt',
-    name: 'VELT',
-    logoUrl: '/logos/velt-logo.jpg',
-    tagline: 'Tu habitación, tu manifiesto.',
-    concept: 'Diseño Editorial',
-    description: 'Diseño de autor y patrones atrevidos. Rompemos el ciclo de lo clásico para darte identidad.',
-    colors: {
-      primary: '#1A1A1A', 
-      secondary: '#FFFFFF', 
-      accent: '#C06C54', 
-      bg: 'bg-white',
-      text: 'text-black',
-      cardBg: 'bg-stone-50 border border-black'
-    },
-    typography: {
-      titleFont: 'font-serif italic font-bold', 
-      bodyFont: 'font-sans', 
-      style: 'Editorial & Bold'
-    },
-    persona: {
-      name: 'Camila',
-      age: '25-40 años',
-      profile: 'Creativa, busca espacios "instagrameables". Quiere que su casa tenga carácter.'
-    },
-    unboxing: {
-      title: 'The PR Kit',
-      desc: 'Caja rígida negra mate, papel seda con patrones. Playlist de Spotify curada mediante QR.',
-      message: '"No es solo dormir, es estilo."'
-    },
-    logoPrompt: 'High-fashion editorial logo, sophisticated serif typography, high contrast, luxury magazine header style, matte black and terracotta.'
-  },
-  NIDDO: {
-    id: 'niddo',
-    name: 'NIDDO',
-    logoUrl: '/logos/niddo-logo.jpg',
-    tagline: 'Tu refugio favorito.',
-    concept: 'Refugio Natural',
-    description: 'El hogar nace en los detalles que nos abrazan. Un espacio de calma, materiales honestos y estética acogedora que invita a desconectar del caos.',
-    colors: {
-      primary: '#CC7A67', 
-      secondary: '#8A9A5B', 
-      accent: '#E8DCC4', 
-      bg: 'bg-[#F9F7F2]', 
-      text: 'text-[#5C4B45]', 
-      cardBg: 'bg-[#F9F7F2] border border-[#8A9A5B]/30'
-    },
-    typography: {
-      titleFont: 'font-serif', 
-      bodyFont: 'font-sans', 
-      style: 'Organic & Warm'
-    },
-    persona: {
-      name: 'Elena',
-      age: '27-38 años',
-      profile: 'Valora la desconexión y la calma. Busca materiales honestos y un hogar que se sienta como un abrazo natural.'
-    },
-    unboxing: {
-      title: 'Ritual de Tierra',
-      desc: 'Envoltorio de papel semilla plantable (cero plásticos). Aroma a bosque húmedo y cinta de yute.',
-      message: '"Bienvenida a tu refugio."'
-    },
-    logoPrompt: 'Artisanal organic logo for home brand Niddo, elegant serif typography Lora style, soft terracotta and pale moss green, textured paper effect, warm lighting.'
-  },
-  MIXIO: {
-    id: 'mixio',
-    name: 'MIXIO',
-    logoUrl: '/logos/mixio-logo.jpg',
-    tagline: 'Tu cama, tus reglas.',
-    concept: 'Eclectic Modular',
-    description: '¿Por qué conformarse con un solo estilo? El poder del Mix & Match. Piezas individuales para crear combinaciones únicas.',
-    colors: {
-      primary: '#4ECDC4', 
-      secondary: '#292929', 
-      accent: '#FF6B6B', 
-      bg: 'bg-[#E0F7FA]', 
-      text: 'text-[#292929]',
-      cardBg: 'bg-white border-2 border-[#4ECDC4] shadow-[4px_4px_0px_0px_rgba(78,205,196,1)]'
-    },
-    typography: {
-      titleFont: 'font-sans font-black tracking-tight', 
-      bodyFont: 'font-mono', 
-      style: 'Bold & Geometric'
-    },
-    persona: {
-      name: 'Sofía',
-      age: '24-30 años',
-      profile: 'La creativa inquieta. Se aburre rápido y le gusta cambiar. Compra fundas sueltas para renovar sin gastar en sets completos.'
-    },
-    unboxing: {
-      title: 'The Puzzle Box',
-      desc: 'Cajas modulares cúbicas que se conectan entre sí. Coleccionables y reutilizables para organizar.',
-      message: '"Crea tu mezcla."'
-    },
-    logoPrompt: 'Bold geometric logo for Mixio, Futura Black typography, Memphis design style, Neo-Mint and Coral Pop colors, playful and modular aesthetic, vector flat design.'
-  },
-  KONIG: {
-    id: 'konig',
-    name: 'KÖNIG',
-    logoUrl: '/logos/konig-logo.jpg',
-    tagline: 'Ingeniería para tus sueños.',
-    concept: 'Precisión Industrial',
-    description: 'Textiles técnicos y precisión europea. Eliminamos intermediarios para democratizar el rendimiento.',
-    colors: {
-      primary: '#2C3E50', 
-      secondary: '#95A5A6', 
-      accent: '#FF5722', 
-      bg: 'bg-slate-100',
-      text: 'text-[#2C3E50]',
-      cardBg: 'bg-white border-2 border-[#95A5A6]'
-    },
-    typography: {
-      titleFont: 'font-sans font-black uppercase tracking-tighter', 
-      bodyFont: 'font-mono', 
-      style: 'Industrial & Technical'
-    },
-    persona: {
-      name: 'Valeria',
-      age: '32 años',
-      profile: 'Entusiasta del rendimiento. Odia las telas frágiles. Busca durabilidad técnica.'
-    },
-    unboxing: {
-      title: 'Vacuum Tech Pack',
-      desc: 'Sellado al vacío tipo componente electrónico. Expansión visual al abrir. Ficha técnica incluida.',
-      message: '"Sistema de descanso: Activado."'
-    },
-    logoPrompt: 'Modern industrial logo, bold heavy sans-serif, geometric shield icon, steel blue and safety orange, masculine and efficient aesthetic.'
+    logoPrompt: 'Futuristic abstract logo for high-tech brand Nexum, Exo 2 typography, cyberpunk aesthetic, deep navy and neon cyan, performance and speed, sleek vector design.'
   }
 };
 
@@ -288,7 +91,7 @@ const ColorSwatch = ({ color, label }) => (
 );
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('NORA');
+  const [activeTab, setActiveTab] = useState('STIL_DOS');
   const brand = brandsData[activeTab];
 
   return (
@@ -312,7 +115,7 @@ export default function App() {
                 <button
                   key={key}
                   onClick={() => setActiveTab(key)}
-                  className={`px-4 py-2 text-sm font-bold transition-all duration-300 rounded-lg whitespace-nowrap ${
+                  className={`px-6 py-2 text-sm font-bold transition-all duration-300 rounded-lg whitespace-nowrap ${
                     activeTab === key 
                       ? 'bg-black text-white shadow-lg transform scale-105' 
                       : 'text-gray-500 hover:bg-gray-100'
@@ -329,7 +132,7 @@ export default function App() {
       {/* --- HERO SECTION --- */}
       <header className="relative pt-20 pb-16 px-4 text-center overflow-hidden">
         <div className="max-w-4xl mx-auto relative z-10 animate-in fade-in zoom-in duration-500">
-          <span className={`inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest uppercase border rounded-full ${activeTab === 'VELT' ? 'border-black' : 'border-current opacity-60'}`}>
+          <span className={`inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest uppercase border rounded-full border-current opacity-60`}>
             {brand.concept}
           </span>
 
@@ -354,6 +157,7 @@ export default function App() {
       {/* --- MAIN GRID --- */}
       <main className="max-w-6xl mx-auto px-4 pb-12 space-y-12">
         <div className="grid md:grid-cols-2 gap-8">
+          {/* Identity Card */}
           <div className={`${brand.colors.cardBg} p-8 rounded-3xl transition-all duration-500`}>
             <div className="flex items-center gap-2 mb-6 opacity-70">
               <Palette className="w-5 h-5" />
@@ -376,6 +180,7 @@ export default function App() {
             </div>
           </div>
 
+          {/* Persona Card */}
           <div className={`${brand.colors.cardBg} p-8 rounded-3xl transition-all duration-500 relative overflow-hidden`}>
              <div className="absolute top-0 right-0 p-4 opacity-10">
                <User className="w-32 h-32" />
@@ -401,6 +206,7 @@ export default function App() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
+          {/* Unboxing */}
           <div className={`md:col-span-2 ${brand.colors.cardBg} p-8 rounded-3xl transition-all duration-500`}>
              <div className="flex items-center gap-2 mb-6 opacity-70">
               <Box className="w-5 h-5" />
@@ -408,14 +214,7 @@ export default function App() {
             </div>
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="bg-gray-100 rounded-2xl w-full md:w-1/3 h-48 flex items-center justify-center text-gray-400">
-                {activeTab === 'ORA' && <ShoppingBag className="w-16 h-16" />}
-                {activeTab === 'KONIG' && <Cpu className="w-16 h-16" />}
-                {activeTab === 'VELT' && <Layout className="w-16 h-16" />}
-                {activeTab === 'STIL' && <Zap className="w-16 h-16" />}
-                {activeTab === 'STIL_DOS' && <ShoppingBag className="w-16 h-16" />}
-                {activeTab === 'NORA' && <Feather className="w-16 h-16" />}
-                {activeTab === 'NIDDO' && <Leaf className="w-16 h-16" />}
-                {activeTab === 'MIXIO' && <Layers className="w-16 h-16" />}
+                {activeTab === 'STIL_DOS' ? <ShoppingBag className="w-16 h-16" /> : <Activity className="w-16 h-16" />}
               </div>
               <div className="flex-1 space-y-4">
                 <h3 className={`text-2xl ${brand.typography.titleFont}`}>{brand.unboxing.title}</h3>
@@ -428,6 +227,7 @@ export default function App() {
             </div>
           </div>
 
+          {/* AI Prompt */}
           <div className="bg-gray-900 text-gray-300 p-8 rounded-3xl shadow-lg flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 mb-4 text-emerald-400">
@@ -447,7 +247,7 @@ export default function App() {
           </div>
         </div>
 
-        {/* --- SECCIÓN: LOGO AL FINAL --- */}
+        {/* --- LOGO AL FINAL --- */}
         <section className="flex flex-col items-center justify-center pt-8 border-t border-current/5">
           <p className="text-xs uppercase tracking-[0.3em] opacity-40 mb-6 font-bold">Identidad de Marca</p>
           <div className="bg-white p-4 rounded-2xl shadow-xl overflow-hidden group transition-transform hover:scale-105 duration-500">
