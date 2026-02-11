@@ -138,7 +138,7 @@ export default function App() {
           </span>
 
           <h1 className={`text-6xl md:text-8xl mb-4 ${brand.typography.titleFont} transition-all duration-500`}>
-            {activeTab === 'STIL_DOS' ? 'STIL' : brand.name}
+            {activeTab === 'STIL_DOS' ? 'STILL' : brand.name}
           </h1>
 
           <p className="text-xl md:text-2xl opacity-80 italic mb-8">
@@ -174,7 +174,7 @@ export default function App() {
                 <Type className="w-6 h-6 mt-1 opacity-60" />
                 <div>
                   <h3 className="font-bold text-sm uppercase mb-1">Tipografía</h3>
-                  <p className={`${brand.typography.titleFont} text-2xl mb-1`}>{activeTab === 'STIL_DOS' ? 'STIL' : brand.name} Headline</p>
+                  <p className={`${brand.typography.titleFont} text-2xl mb-1`}>{activeTab === 'STIL_DOS' ? 'STILL' : brand.name} Headline</p>
                   <p className="text-sm opacity-70">Enfoque {brand.typography.style}</p>
                 </div>
               </div>
